@@ -460,7 +460,7 @@ Phase3Pull:
 	// in:  [seq id] [0x0f == FINAL response] ... data ... (no counter)
 	// out: [seq id] [0x4f == FINAL request] ... data ... (no counter, no response expected)
 	//
-	// So the field in byte 1 seems to be build like this
+	// So the field in byte 1 seems to be built like this
 	// - bit 0..3:	1111 for request/response first frame (which sets the seq id used in byte 0), 0000 for successive ack pulls (maybe too, for successive responses in same phase)
 	// - bit 4:		If enabled: follow up packets expected (have to be pulled), if disabled: Final frame (no follow up frames)
 	// - bit 5:		Unknown/reserved (must be 0 to not conflict with non-pairing notifications)
@@ -1473,7 +1473,7 @@ func (cc *CovertChannel) Run() {
 
 
 			/*
-			//acumulate data if max payload length, till packet of length < 16 arrives
+			//accumulate data if max payload length, till packet of length < 16 arrives
 			printBuffer = append(printBuffer, rxPayload...)
 			if len(rxPayload) < 16 && len(printBuffer) > 0 {
 				fmt.Println(string(printBuffer))
@@ -1497,7 +1497,7 @@ func (cc *CovertChannel) Run() {
 			//update payload length
 			txPayloadLength = len(txPayload)
 
-			//account for sepecial case of maximum payload length, which is indicated by a control frame
+			//account for special case of maximum payload length, which is indicated by a control frame
 			if txPayloadLength >= COVERT_CHANNEL_MAX_PAYLOAD_LENGTH {
 				txPayload = txPayload[:COVERT_CHANNEL_MAX_PAYLOAD_LENGTH] //truncate if needed
 				txIsControlFrame = true
@@ -1734,7 +1734,7 @@ func main() {
 			if len(os.Args) > 2 {
 				outstring = strings.Join(os.Args[2:], " ")
 			}
-			TestSniffReplayXOR(false, outstring, "de") //change laguage layout if needed
+			TestSniffReplayXOR(false, outstring, "de") //change language layout if needed
 		}
 		if strings.Contains(arg, "file") { // PoC 3
 			if len(os.Args) < 3 {
